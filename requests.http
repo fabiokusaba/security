@@ -1,0 +1,26 @@
+### GET test
+GET http://localhost:8080/test
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInN1YiI6ImpvaG5kb2VAZ21haWwuY29tIiwiZXhwIjoxNzU5MzY1MDY4LCJpYXQiOjE3NTkyNzg2Njh9.OZLOdw13KxzUcJqal4Trq4cUvHl3uyyHrL_pIwArrkc
+
+###
+
+### POST register
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "johndoe@gmail.com",
+  "password": "test123"
+}
+
+###
+
+### POST login
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "johndoe@gmail.com",
+  "password": "test123"
+}
