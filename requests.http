@@ -9,9 +9,10 @@ POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "password": "test123"
+  "name": "Andy Doe",
+  "email": "andydoe@gmail.com",
+  "password": "test123",
+  "role": "ROLE_ADMIN"
 }
 
 ###
@@ -21,6 +22,18 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "email": "johndoe@gmail.com",
+  "email": "andydoe@gmail.com",
   "password": "test123"
 }
+
+###
+
+### GET User
+GET http://localhost:8080/user/dashboard
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJtYXJpZWRvZUBnbWFpbC5jb20iLCJleHAiOjE3NTk5MzU4NzUsImlhdCI6MTc1OTg0OTQ3NX0.xHjQWYZbZ9C5TxXG2_0wLXZovxvKJQv-dFNXVLfhZck
+
+###
+
+### GET Admin
+GET http://localhost:8080/admin/panel
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwic3ViIjoiYW5keWRvZUBnbWFpbC5jb20iLCJleHAiOjE3NTk5MzYwMTQsImlhdCI6MTc1OTg0OTYxNH0.IUqnobvYgCUaNlJF0mT7VOCvKx0JomTSzDLSHKUelLM

@@ -5,6 +5,7 @@ import dev.fabiokusaba.security.dto.request.LoginRequest;
 import dev.fabiokusaba.security.dto.request.RegisterUserRequest;
 import dev.fabiokusaba.security.dto.response.LoginResponse;
 import dev.fabiokusaba.security.dto.response.RegisterUserResponse;
+import dev.fabiokusaba.security.entity.Role;
 import dev.fabiokusaba.security.entity.User;
 import dev.fabiokusaba.security.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Set;
 
 @RestController
 @RequestMapping("/auth")
@@ -52,6 +55,12 @@ public class AuthController {
         newUser.setName(request.name());
         newUser.setEmail(request.email());
         newUser.setPassword(passwordEncoder.encode(request.password()));
+
+        if (request.role() != null) {
+            newUser.setRoles(Set.of(request.role()));
+        } else {
+            newUser.setRoles(Set.of(Role.ROLE_USER));
+        }
 
         userRepository.save(newUser);
 

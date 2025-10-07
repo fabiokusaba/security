@@ -1,5 +1,6 @@
 package dev.fabiokusaba.security.dto.request;
 
+import dev.fabiokusaba.security.entity.Role;
 import jakarta.validation.constraints.NotEmpty;
 
 public record RegisterUserRequest(
@@ -8,6 +9,7 @@ public record RegisterUserRequest(
         @NotEmpty(message = "Email é obrigatório")
         String email,
         @NotEmpty(message = "Senha é obrigatória")
-        String password
+        String password,
+        Role role
 ) {
 }
